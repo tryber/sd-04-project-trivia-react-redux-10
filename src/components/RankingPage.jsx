@@ -38,7 +38,9 @@ class RankingPage extends React.Component {
               className="home-btn"
               data-testid="btn-go-home"
               type="button"
-            >"VOLTE AO INÍCIO!"</button>
+            >
+                "VOLTE AO INÍCIO!"
+                </button>
           </Link>
         </div>
       </div>
