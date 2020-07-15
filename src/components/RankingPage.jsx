@@ -39,7 +39,7 @@ class RankingPage extends React.Component {
               data-testid="btn-go-home"
               type="button"
             >
-                "VOLTE AO INÍCIO!"
+                VOLTE AO INÍCIO!
                 </button>
           </Link>
         </div>
