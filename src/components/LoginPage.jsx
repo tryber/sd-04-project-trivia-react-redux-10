@@ -15,7 +15,7 @@ export default class LoginPage extends Component {
           <button
             className="button-login"
             data-testid="btn-play"
-            type='button'
+            type="button"
           >JOGAR</button>
         </Link>
       </div>
