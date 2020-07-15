@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class RankingPage extends React.Component {
   /*  static rankingList() {
@@ -38,10 +38,7 @@ class RankingPage extends React.Component {
               className="home-btn"
               data-testid="btn-go-home"
               type="button"
-            >
-              {" "}
-              "VOLTE AO INÍCIO!"{" "}
-            </button>
+            >"VOLTE AO INÍCIO!"</button>
           </Link>
         </div>
       </div>
