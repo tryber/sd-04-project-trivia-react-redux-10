@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Button from './Button';
 import { Link } from 'react-router-dom';
 
 export default class LoginPage extends Component {
@@ -13,12 +12,11 @@ export default class LoginPage extends Component {
           Nome do Jogador:<input data-testid="input-player-name" type="text"></input>
         </label>
         <Link to="/perguntas">
-          <Button
-            className={'className'}
-            data-testid={'dataTestid'}
-            type={'button'}
-            text={'JOGAR!'}
-          />
+          <button
+            className="button-login"
+            data-testid="btn-play"
+            type="button"
+          >JOGAR</button>
         </Link>
       </div>
     );
