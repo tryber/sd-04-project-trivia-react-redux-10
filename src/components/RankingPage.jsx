@@ -27,6 +27,7 @@ class RankingPage extends React.Component {
   render() {
     return (
         <div>
+        <div>
           <h1 className="title" data-testid="ranking-title">Ranking</h1>
         {/* {rankingList()} */}
         </div>
@@ -38,6 +39,7 @@ class RankingPage extends React.Component {
             type="button"
           >"VOLTE AO INÍCIO!"</button>
         </Link>
+        </div>
         </div>
     );
   }
