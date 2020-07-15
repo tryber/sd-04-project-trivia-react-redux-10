@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import ButtonHome from './ButtonHome';
 
 class RankingPage extends React.Component {
-  static rankingList() {
+/*  static rankingList() {
     const playerGravatar = (picture) => <img src={picture} alt="Gravatar" />;
-    const getUser = [];
+    const getUser = local storage;
     const sortUser = getUser.sort((a, b) => b.score - a.score);
-    
+
     return (
       <ul className="ranking-list">
         {sortUser.map(({ name, score, picture }, indice) => {
@@ -22,13 +22,13 @@ class RankingPage extends React.Component {
         })}
       </ul>
     );
-  }
+  }*/
 
   render() {
     return (
         <div>
           <h1 className="title" data-testid="ranking-title">Ranking</h1>
-          {rankingList()}
+        {/* {rankingList()} */}
         </div>
         <div className="home-container">
         <Link to="/">
