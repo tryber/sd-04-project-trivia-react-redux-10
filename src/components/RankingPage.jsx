@@ -25,18 +25,18 @@ class RankingPage extends React.Component {
 
   render() {
     return (
-        <div>
-        <div>
+      <div>
+          <div>
           <h1 className="title" data-testid="ranking-title">Ranking</h1>
-        {/* {rankingList()} */}
+          {/* {rankingList()} */}
         </div>
-        <div className="home-container">
-        <Link to="/">
+          <div className="home-container">
+          <Link to="/">
           <button
             className="home-btn"
             data-testid="btn-go-home"
             type="button"
-          >"VOLTE AO INÍCIO!"</button>
+          > "VOLTE AO INÍCIO!" </button>
         </Link>
         </div>
         </div>
