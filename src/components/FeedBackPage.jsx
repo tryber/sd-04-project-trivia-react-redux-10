@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import Header from './Header.jsx'
 
 class FeedBackPage extends Component {
-  renderButtons() {
+  static renderButtons() {
     return (
       <div>
         <Link to="/ranking">
