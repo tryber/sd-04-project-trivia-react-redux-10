@@ -26,7 +26,7 @@ class FeedBackPage extends Component {
         {/* <Header /> */}
         {/* {this.Message()} */}
         {/* {this.assertions} */}
-        {renderButtons()}
+        {this.renderButtons()}
       </div>
     );
   }
