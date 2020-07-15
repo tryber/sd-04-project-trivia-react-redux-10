@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 class RankingPage extends React.Component {
-/*  static rankingList() {
+  /*  static rankingList() {
     const playerGravatar = (picture) => <img src={picture} alt="Gravatar" />;
     const getUser = local storage;
     const sortUser = getUser.sort((a, b) => b.score - a.score);
@@ -26,20 +26,25 @@ class RankingPage extends React.Component {
   render() {
     return (
       <div>
-          <div>
-          <h1 className="title" data-testid="ranking-title">Ranking</h1>
+        <div>
+          <h1 className="title" data-testid="ranking-title">
+            Ranking
+          </h1>
           {/* {rankingList()} */}
         </div>
-          <div className="home-container">
+        <div className="home-container">
           <Link to="/">
-          <button
-            className="home-btn"
-            data-testid="btn-go-home"
-            type="button"
-          > "VOLTE AO INÍCIO!" </button>
-        </Link>
+            <button
+              className="home-btn"
+              data-testid="btn-go-home"
+              type="button"
+            >
+              {" "}
+              "VOLTE AO INÍCIO!"{" "}
+            </button>
+          </Link>
         </div>
-        </div>
+      </div>
     );
   }
 }
