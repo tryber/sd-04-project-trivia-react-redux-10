@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ButtonHome from './ButtonHome';
 
 class RankingPage extends React.Component {
 /*  static rankingList() {
@@ -45,4 +44,4 @@ class RankingPage extends React.Component {
   }
 }
 
-export default Ranking;
+export default RankingPage;
