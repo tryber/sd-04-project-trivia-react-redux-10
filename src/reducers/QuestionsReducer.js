@@ -1,26 +1,26 @@
-import { REQUEST_TOKEN_API, RECEIVED_TOKEN_API, REJECTED_TOKEN_API } from '../actions/index';
+import { REQUEST_QUESTIONS, QUESTIONS_SUCCESS, QUESTIONS_REJECTED } from '../actions/index';
 
 const INITIAL_STATE = {
   isFetching: false,
-  token: '',
+  questions: '',
   error: '',
 };
 
-const tokenReducer = (state = INITIAL_STATE, action) => {
+const questionsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case REQUEST_TOKEN_API:
+    case REQUEST_QUESTIONS:
       return {
         ...state,
         isFetching: true,
       };
 
-    case RECEIVED_TOKEN_API:
+    case QUESTIONS_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        token: action.token,
+        questions: action.questions,
       };
-    case REJECTED_TOKEN_API:
+    case QUESTIONS_REJECTED:
       return {
         ...state,
         isFetching: false,
@@ -32,4 +32,4 @@ const tokenReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default tokenReducer;
+export default questionsReducer;

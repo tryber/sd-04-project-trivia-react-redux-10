@@ -40,7 +40,7 @@ const requestQuestions = () => ({
 
 const questionsSuccess = (data) => ({
   type: QUESTIONS_SUCCESS,
-  question: data.results,
+  questions: data.results,
 });
 
 const questionsError = (error) => ({
@@ -48,7 +48,7 @@ const questionsError = (error) => ({
   error,
 });
 
-export function fetchQuestion() {
+export function fetchQuestions() {
   return (dispatch) => {
     // Thunk
     dispatch(requestQuestions());
