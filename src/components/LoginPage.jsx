@@ -6,17 +6,17 @@ export default class LoginPage extends Component {
     return (
       <div>
         <label>
-          E-mail do gravatar:<input data-testid="input-gravatar-email" type="e-mail"></input>
+          E-mail do gravatar:
+          <input data-testid="input-gravatar-email" type="e-mail" />
         </label>
         <label>
-          Nome do Jogador:<input data-testid="input-player-name" type="text"></input>
+          Nome do Jogador:
+          <input data-testid="input-player-name" type="text" />
         </label>
         <Link to="/perguntas">
-          <button
-            className="button-login"
-            data-testid="btn-play"
-            type="button"
-          >JOGAR</button>
+          <button className="button-login" data-testid="btn-play" type="button">
+            JOGAR
+          </button>
         </Link>
       </div>
     );
