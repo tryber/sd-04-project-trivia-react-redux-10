@@ -8,6 +8,8 @@ export const QUESTIONS_SUCCESS = 'QUESTIONS_SUCCESS';
 export const REQUEST_QUESTIONS = 'REQUEST_QUESTIONS';
 export const QUESTIONS_REJECTED = 'QUESTIONS_REJECTED';
 export const RECEIVED_GRAVATAR = 'RECEIVED_GRAVATAR';
+export const SAVE_USER_DATA = 'SAVE_USER_DATA';
+export const CLEAR_LOGIN_INFO = 'CLEAR_LOGIN_INFO';
 
 const requestToken = () => ({
   type: REQUEST_TOKEN_API,
@@ -62,4 +64,14 @@ export function fetchQuestions() {
 export const gravatarImage = (picture) => ({
   type: RECEIVED_GRAVATAR,
   picture,
+});
+
+export const clearLoginInfo = () => ({
+  type: CLEAR_LOGIN_INFO,
+});
+
+export const getUserData = (name, avatar) => ({
+  type: SAVE_USER_DATA,
+  name,
+  avatar,
 });

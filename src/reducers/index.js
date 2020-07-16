@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
-import LoginReducer from './LoginReducer';
-import TokenReducer from './TokenReducer';
-import QuestionsReducer from './QuestionsReducer';
+import gravatarReducer from './GravatarReducer';
+import tokenReducer from './TokenReducer';
+import questionsReducer from './QuestionsReducer';
+import loginReducer from './LoginReducer';
 
 const rootReducer = () => combineReducers({
-  LoginReducer,
-  TokenReducer,
-  QuestionsReducer,
+  gravatarReducer,
+  loginReducer,
+  tokenReducer,
+  questionsReducer,
 });
 
 export default rootReducer;
