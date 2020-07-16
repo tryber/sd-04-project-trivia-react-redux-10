@@ -4,7 +4,7 @@ import tokenReducer from './TokenReducer';
 import questionsReducer from './QuestionsReducer';
 import loginReducer from './LoginReducer';
 
-const rootReducer = () => combineReducers({
+const rootReducer = combineReducers({
   gravatarReducer,
   loginReducer,
   tokenReducer,
