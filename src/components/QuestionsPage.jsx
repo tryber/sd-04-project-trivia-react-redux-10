@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default class QuestionsPage extends Component {
   render() {
-      const { TypeOfQuestion, QuestionText, Timer, Answer } = this.props
+    const { TypeOfQuestion, QuestionText, Timer, Answer } = this.props;
     return (
       <div>
         {/* <Header /> */}
@@ -15,11 +15,8 @@ export default class QuestionsPage extends Component {
             <h1 className='timer'>{Timer}</h1>
           </div>
           <div className='answer-box'>
-            <button
-              className='answer'
-              data-testid='btn-answer'
-              type='button'>
-              { Answer }
+            <button className='answer' data-testid='btn-answer' type='button'>
+              {Answer}
             </button>
             <Link to='/ResultsPage'>
               <button
