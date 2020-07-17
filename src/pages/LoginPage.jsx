@@ -54,7 +54,7 @@ class LoginPage extends Component {
     const { name } = this.state;
     return (
       <div>
-        <label htmlFor="name">Nome do Jogador</label>
+        <label htmlFor="name">Nome do Jogador:</label>
         <input
           type="text"
           data-testid="input-player-name"
@@ -70,7 +70,7 @@ class LoginPage extends Component {
     const { email } = this.state;
     return (
       <div>
-        <label htmlFor="email">E-mail do Gravatar</label>
+        <label htmlFor="email">E-mail do Gravatar:</label>
         <input
           type="email"
           data-testid="input-gravatar-email"
@@ -83,12 +83,12 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { avatar } = this.state;
+    // const { avatar } = this.state;
     return (
       <div className="login-area">
         {this.renderNameInput()}
         {this.renderEmailInput()}
-        <img src={`https://www.gravatar.com/avatar/${avatar}`} alt="avatar" />
+        {/* <img src={`https://www.gravatar.com/avatar/${avatar}`} alt="avatar" /> */}
         <Link to="/perguntas">
           <button
             type="button"

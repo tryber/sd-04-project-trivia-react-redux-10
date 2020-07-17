@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import LoginPage from './components/LoginPage';
+import LoginPage from './pages/LoginPage';
 import './App.css';
-import QuestionsPage from './components/QuestionsPage';
-import FeedBackPage from './components/FeedBackPage';
-import RankingPage from './components/RankingPage';
+import QuestionsPage from './pages/QuestionsPage';
+import FeedBackPage from './pages/FeedBackPage';
+import RankingPage from './pages/RankingPage';
 
 export default function App() {
   return (

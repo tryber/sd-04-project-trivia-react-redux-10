@@ -9,7 +9,6 @@ import store from './store/index';
 
 ReactDOM.render(
   <Provider store={store}>
-    {console.log(store)}
     <App />
   </Provider>,
   document.getElementById('root'),
