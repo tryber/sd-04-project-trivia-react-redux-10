@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchQuestions } from '../actions/index';
+import mainHeader from '../components/MainHeader'
 
 // import Header from './Header.jsx'
 
@@ -19,7 +20,7 @@ class QuestionsPage extends Component {
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
     return (
       <div>
-        {/* <Header /> */}
+        <mainHeader />
         {console.log(questions)}
         <div className="question-and-answer">
           <div className="question-box">
