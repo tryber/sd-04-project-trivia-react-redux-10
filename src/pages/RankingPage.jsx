@@ -8,7 +8,7 @@ class RankingPage extends React.Component {
     const sortUser = getUser.sort((a, b) => b.score - a.score);
 
     return (
-    <ul className="ranking-list">
+      <ul className="ranking-list">
       {sortUser.map(({ name, score, picture }, indice) => {
         const index = indice + 1;
         return (
@@ -20,7 +20,7 @@ class RankingPage extends React.Component {
         );
       })}
     </ul>
-  );
+    );
   }
 
   render() {
