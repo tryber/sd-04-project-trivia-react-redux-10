@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 
 class RankingPage extends React.Component {
 
-static rankingList() {
-
+  static rankingList() {
   const getUser = JSON.parse(localStorage.getItem('ranking')) || [];
   const sortUser = getUser.sort((a, b) => b.score - a.score);
 
