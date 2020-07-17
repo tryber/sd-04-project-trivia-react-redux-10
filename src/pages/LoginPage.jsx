@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import md5 from 'crypto-js/md5';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchToken, getUserData } from '../actions/index';
+import { fetchToken, getUserData, gravatarImage } from '../actions/index';
 
 // import GET_TOKEN from '../services/GET_TOKEN';
 
@@ -33,10 +33,11 @@ class LoginPage extends Component {
   }
 
   clickToStartGame() {
-    const { token, userData } = this.props;
+    const { token, userData, setGravatar } = this.props;
     const { name, avatar, email } = this.state;
     token();
     userData(name, avatar);
+    setGravatar(email);
     const storage = {
       player: {
         name,
@@ -108,6 +109,7 @@ class LoginPage extends Component {
 const mapDispatchToProps = (dispatch) => ({
   token: () => dispatch(fetchToken()),
   userData: (name, avatar) => dispatch(getUserData(name, avatar)),
+  setGravatar: (picture) => dispatch(gravatarImage(picture)),
 });
 
 export default connect(null, mapDispatchToProps)(LoginPage);
@@ -115,4 +117,5 @@ export default connect(null, mapDispatchToProps)(LoginPage);
 LoginPage.propTypes = {
   token: PropTypes.func.isRequired,
   userData: PropTypes.func.isRequired,
+  setGravatar: PropTypes.func.isRequired,
 };
