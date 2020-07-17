@@ -5,7 +5,6 @@ import MainHeader from '../components/MainHeader';
 function renderButtons() {
   return (
     <div>
-      <MainHeader />
       <Link to="/ranking">
         <button data-testid="btn-ranking" type="button">
           Ver Ranking
@@ -23,7 +22,7 @@ class FeedBackPage extends Component {
   render() {
     return (
       <div>
-        {/* <Header /> */}
+        <MainHeader />
         {/* {this.Message()} */}
         {/* {this.assertions} */}
         {renderButtons()}
