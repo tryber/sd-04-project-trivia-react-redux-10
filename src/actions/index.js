@@ -1,5 +1,6 @@
 import GET_QUESTIONS from '../services/GET_QUESTIONS';
 import GET_TOKEN from '../services/GET_TOKEN';
+import GET_GRAVATAR from '../services/GET_GRAVATAR';
 
 export const REQUEST_TOKEN_API = 'REQUEST_TOKEN_API';
 export const RECEIVED_TOKEN_API = 'RECEIVED_TOKEN_API';
@@ -63,7 +64,7 @@ export function fetchQuestions(token) {
 
 export const gravatarImage = (picture) => ({
   type: RECEIVED_GRAVATAR,
-  picture,
+  picture: GET_GRAVATAR(picture),
 });
 
 export const clearLoginInfo = () => ({
