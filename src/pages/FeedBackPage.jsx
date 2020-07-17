@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import Header from './Header.jsx'
+import MainHeader from '../components/MainHeader';
 
 function renderButtons() {
   return (
     <div>
+      <MainHeader />
       <Link to="/ranking">
         <button data-testid="btn-ranking" type="button">
           Ver Ranking
