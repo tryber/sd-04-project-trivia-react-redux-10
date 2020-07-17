@@ -12,12 +12,12 @@ class RankingPage extends React.Component {
         {sortUser.map(({ name, score, picture }, indice) => {
           const index = indice + 1;
           return (
-          <li className="list-items">
+            <li className="list-items">
             {sortUser(picture)}
             <p data-testid={`player-name-${index}`}>{`${name}`}</p>
             <p data-testid={`player-score-${index}`}>{` ${score}`}</p>
           </li>
-        );
+          );
         })}
       </ul>
     );
