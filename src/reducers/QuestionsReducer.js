@@ -2,7 +2,7 @@ import { REQUEST_QUESTIONS, QUESTIONS_SUCCESS, QUESTIONS_REJECTED } from '../act
 
 const INITIAL_STATE = {
   isFetching: false,
-  questions: '',
+  questions: [],
   error: '',
 };
 

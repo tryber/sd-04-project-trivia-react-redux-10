@@ -50,11 +50,11 @@ const questionsError = (error) => ({
   error,
 });
 
-export function fetchQuestions() {
+export function fetchQuestions(token) {
   return (dispatch) => {
     // Thunk
     dispatch(requestQuestions());
-    return GET_QUESTIONS().then(
+    return GET_QUESTIONS(token).then(
       (data) => dispatch(questionsSuccess(data)),
       (error) => dispatch(questionsError(error)),
     );
