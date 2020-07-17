@@ -29,7 +29,7 @@ class MainHeader extends Component {
 
 MainHeader.propTypes = {
   username: PropTypes.func.isRequired,
- avatar: PropTypes.func.isRequired,
+  avatar: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
