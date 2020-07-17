@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-//  import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class MainHeader extends Component {
   render() {
@@ -24,6 +24,11 @@ class MainHeader extends Component {
     );
   }
 }
+
+MainHeader.propTypes = {
+  username: PropTypes.func.isRequired,
+ avatar: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => ({
   username: state.loginReducer[0].name,
