@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 class RankingPage extends React.Component {
 
   static rankingList() {
-  const getUser = JSON.parse(localStorage.getItem('ranking')) || [];
-  const sortUser = getUser.sort((a, b) => b.score - a.score);
+    const getUser = JSON.parse(localStorage.getItem('ranking')) || [];
+    const sortUser = getUser.sort((a, b) => b.score - a.score);
 
-  return (
+    return (
     <ul className="ranking-list">
       {sortUser.map(({ name, score, picture }, indice) => {
         const index = indice + 1;
@@ -21,7 +21,7 @@ class RankingPage extends React.Component {
       })}
     </ul>
   );
-}
+  }
 
   render() {
     return (
