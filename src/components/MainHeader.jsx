@@ -4,12 +4,20 @@ import { connect } from 'react-redux';
 
 class MainHeader extends Component {
   render() {
-    const {username, avatar} = this.props;
+    const { username, avatar } = this.props;
     return (
       <div className="Default-Header">
         <div className="Avatar-and-Name">
-          <img data-testid="header-profile-picture" className="Avatar-Picture" src={ avatar } alt="User avatar" />
-          <h3 data-testid="header-player-name" className="Name">{ username }</h3>
+          <img
+            data-testid="header-profile-picture"
+            className="Avatar-Picture"
+            src={avatar}
+            alt="User avatar" />
+          <h3
+            data-testid="header-player-name"
+            className="Name">
+            {username}
+          </h3>
         </div>
         <h3 data-testid="header-score" className="Points" >0</h3>
       </div>
