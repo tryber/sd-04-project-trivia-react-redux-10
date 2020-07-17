@@ -14,22 +14,21 @@ class MainHeader extends Component {
             src={avatar}
             alt="User avatar"
           />
-          <h3
-            data-testid="header-player-name"
-            className="Name"
-          >
+          <h3 data-testid="header-player-name" className="Name">
             {username}
           </h3>
         </div>
-        <h3 data-testid="header-score" className="Points" >0</h3>
+        <h3 data-testid="header-score" className="Points">
+          0
+        </h3>
       </div>
     );
   }
 }
 
 MainHeader.propTypes = {
-  username: PropTypes.func.isRequired,
-  avatar: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
