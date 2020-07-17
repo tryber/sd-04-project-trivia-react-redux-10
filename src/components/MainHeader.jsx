@@ -12,10 +12,12 @@ class MainHeader extends Component {
             data-testid="header-profile-picture"
             className="Avatar-Picture"
             src={avatar}
-            alt="User avatar" />
+            alt="User avatar"
+          />
           <h3
             data-testid="header-player-name"
-            className="Name">
+            className="Name"
+          >
             {username}
           </h3>
         </div>

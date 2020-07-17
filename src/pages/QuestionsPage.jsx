@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchQuestions } from '../actions/index';
-import MainHeader from '../components/MainHeader'
+import MainHeader from '../components/MainHeader';
 
 // import Header from './Header.jsx'
 
