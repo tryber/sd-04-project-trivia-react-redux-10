@@ -22,7 +22,7 @@ class FeedBackPage extends Component {
   render() {
     return (
       <div>
-        <h3 data-testid="feedback-text"> </h3>
+        <h3 data-testid="feedback-text">Resultados:</h3>
         {/* <Header /> */}
         {/* {this.Message()} */}
         {/* {this.assertions} */}
