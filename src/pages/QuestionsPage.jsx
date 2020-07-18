@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 import { fetchQuestions } from '../actions/index';
 import MainHeader from '../components/MainHeader';
 import './QuestionsPage.css';
-
 // import Header from './Header.jsx'
 // category: "Entertainment: Television"
 // correct_answer: "Todd Chavez"
@@ -112,6 +112,7 @@ class QuestionsPage extends Component {
     super(props);
     this.state = {
       counter: 0,
+      redirect: false,
     };
     this.goToNextQuestion = this.goToNextQuestion.bind(this);
   }
@@ -122,16 +123,20 @@ class QuestionsPage extends Component {
   }
 
   goToNextQuestion() {
-    // const { counter } = this.state;
-    this.setState((state) => ({ counter: state.counter + 1 }));
+    const { counter } = this.state;
+    if (counter < 4) {
+      return this.setState((state) => ({ counter: state.counter + 1 }));
+    }
+    return this.setState({ redirect: true });
   }
 
   render() {
     // const { TypeOfQuestion, QuestionText, Timer, Answer } = this.props;
     // const { questions } = this.state;
     const { isFetching, questions } = this.props;
-    const { counter } = this.state;
+    const { counter, redirect } = this.state;
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
+    if (redirect) return <Redirect to="/ResultsPage" />;
     return (
       <div>
         <MainHeader />
