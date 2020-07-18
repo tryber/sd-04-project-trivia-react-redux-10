@@ -14,6 +14,11 @@ import './QuestionsPage.css';
 // question: "Which of these Bojack Horseman characters is a human?"
 // type: "multiple"
 
+function dissableButtonNext() {
+  const buttonNext = document.querySelector('.next');
+  buttonNext.style.display = 'none';
+}
+
 function renderButtonNext(goToNextQuestion) {
   return (
     <input
@@ -23,11 +28,13 @@ function renderButtonNext(goToNextQuestion) {
       style={{ display: 'none' }}
       onClick={() => {
         goToNextQuestion();
+        dissableButtonNext();
       }}
       value="Próximo"
     />
   );
 }
+
 function shuffle(received) {
   // Resposavel por embaralhar o array de respostas
   const array = [...received];
@@ -131,12 +138,10 @@ class QuestionsPage extends Component {
   }
 
   render() {
-    // const { TypeOfQuestion, QuestionText, Timer, Answer } = this.props;
-    // const { questions } = this.state;
     const { isFetching, questions } = this.props;
     const { counter, redirect } = this.state;
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
-    if (redirect) return <Redirect to="/ResultsPage" />;
+    if (redirect) return <Redirect to="/ResultsPage" data-testid="feedback-text" />;
     return (
       <div>
         <MainHeader />
