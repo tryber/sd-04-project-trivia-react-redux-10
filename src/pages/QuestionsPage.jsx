@@ -141,7 +141,7 @@ class QuestionsPage extends Component {
     const { isFetching, questions } = this.props;
     const { counter, redirect } = this.state;
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
-    if (redirect) return <Redirect to="/ResultsPage" data-testid="feedback-text" />;
+    if (redirect) return <Redirect to="/ResultsPage" />;
     return (
       <div>
         <MainHeader />
