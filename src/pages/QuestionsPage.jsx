@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchQuestions } from '../actions/index';
 import MainHeader from '../components/MainHeader';
+import './QuestionsPage.css';
 
 // import Header from './Header.jsx'
 // category: "Entertainment: Television"
@@ -12,6 +13,21 @@ import MainHeader from '../components/MainHeader';
 // incorrect_answers: (3) ["Lennie Turtletaub", "Princess Carolyn", "Tom Jumbo-Grumbo"]
 // question: "Which of these Bojack Horseman characters is a human?"
 // type: "multiple"
+
+function renderButtonNext(goToNextQuestion) {
+  return (
+    <input
+      type="button"
+      data-testid="btn-next"
+      className="next"
+      style={{ display: 'none' }}
+      onClick={() => {
+        goToNextQuestion();
+      }}
+      value="Próximo"
+    />
+  );
+}
 function shuffle(received) {
   // Resposavel por embaralhar o array de respostas
   const array = [...received];
@@ -22,6 +38,17 @@ function shuffle(received) {
   return array;
 }
 
+function setColor() {
+  const wrongs = Array.from(document.querySelectorAll('.wrong'));
+  const correct = document.querySelector('.correct');
+  wrongs.forEach((item) => {
+    item.classList.add('wrong-style');
+  });
+  correct.classList.add('correct-style');
+  const buttonNext = document.querySelector('.next');
+  buttonNext.style.display = 'block';
+}
+
 function renderCorrectAnswer(alternative) {
   // Resposavel por renderizar a alternativa correta
   return (
@@ -29,6 +56,9 @@ function renderCorrectAnswer(alternative) {
       type="button"
       key={alternative}
       className="correct"
+      onClick={() => {
+        setColor();
+      }}
       data-testid="correct-answer"
       value={alternative}
     />
@@ -43,20 +73,10 @@ function renderWrongAnswer(alternative, incorrectAnswers) {
       key={alternative}
       className="wrong"
       data-testid={`wrong-answer-${incorrectAnswers.indexOf(alternative)}`}
+      onClick={() => {
+        setColor();
+      }}
       value={alternative}
-    />
-  );
-}
-
-function renderButtonNext() {
-  return (
-    <input
-      type="button"
-      data-testid="btn-next"
-      className="next"
-      style={{ display: 'none' }}
-      // onClick={() => displayNextQuestion()}
-      value="Próximo"
     />
   );
 }
@@ -83,7 +103,6 @@ function renderQuestions(currentQuestion) {
           return renderWrongAnswer(alternative, incorrectAnswers);
         })}
       </div>
-      {renderButtonNext()}
     </div>
   );
 }
@@ -94,11 +113,17 @@ class QuestionsPage extends Component {
     this.state = {
       counter: 0,
     };
+    this.goToNextQuestion = this.goToNextQuestion.bind(this);
   }
 
   componentDidMount() {
     const { getQuestion, userToken } = this.props;
     return getQuestion(userToken);
+  }
+
+  goToNextQuestion() {
+    // const { counter } = this.state;
+    this.setState((state) => ({ counter: state.counter + 1 }));
   }
 
   render() {
@@ -111,6 +136,7 @@ class QuestionsPage extends Component {
       <div>
         <MainHeader />
         {renderQuestions(questions[counter])}
+        {renderButtonNext(this.goToNextQuestion)}
       </div>
     );
   }
