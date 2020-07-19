@@ -5,6 +5,7 @@ import './App.css';
 import QuestionsPage from './pages/QuestionsPage';
 import FeedBackPage from './pages/FeedBackPage';
 import RankingPage from './pages/RankingPage';
+import SettingsPage from './pages/SettingsPage';
 
 export default function App() {
   return (
@@ -28,6 +29,9 @@ export default function App() {
           </Route>
           <Route exact path="/ranking">
             <RankingPage />
+          </Route>
+          <Route exact path="/settings">
+            <SettingsPage />
           </Route>
         </Switch>
       </div>

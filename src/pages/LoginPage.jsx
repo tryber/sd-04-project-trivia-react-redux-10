@@ -101,6 +101,11 @@ class LoginPage extends Component {
             JOGAR
           </button>
         </Link>
+        <Link to="/settings">
+          <button type="button" className="btn-settings" data-testid="btn-settings">
+            Configurações
+          </button>
+        </Link>
       </div>
     );
   }
