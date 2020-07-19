@@ -72,7 +72,7 @@ function calculateScore(timer, difficulty, addPoints) {
   if (difficulty === 'hard') level = 3;
   if (difficulty === 'medium') level = 2;
   if (difficulty === 'easy') level = 1;
-  const score = 10 + timer * level;
+  const score = 10 + (timer * level);
   addPoints(score);
 }
 
