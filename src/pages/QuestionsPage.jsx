@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { fetchQuestions } from '../actions/index';
+import { fetchQuestions, restoreClock, freezeClock } from '../actions/index';
 import MainHeader from '../components/MainHeader';
 import './QuestionsPage.css';
+import Timer from '../components/Timer';
 // import Header from './Header.jsx'
 // category: "Entertainment: Television"
 // correct_answer: "Todd Chavez"
@@ -19,7 +20,7 @@ function dissableButtonNext() {
   buttonNext.style.display = 'none';
 }
 
-function renderButtonNext(goToNextQuestion) {
+function renderButtonNext(goToNextQuestion, restoreTimer) {
   return (
     <input
       type="button"
@@ -29,6 +30,7 @@ function renderButtonNext(goToNextQuestion) {
       onClick={() => {
         goToNextQuestion();
         dissableButtonNext();
+        restoreTimer();
       }}
       value="Próximo"
     />
@@ -46,6 +48,7 @@ function shuffle(received) {
 }
 
 function setColor() {
+  // Resposavel por mudar as bordas das respostas
   const wrongs = Array.from(document.querySelectorAll('.wrong'));
   const correct = document.querySelector('.correct');
   wrongs.forEach((item) => {
@@ -72,7 +75,7 @@ function renderCorrectAnswer(alternative) {
   );
 }
 
-function renderWrongAnswer(alternative, incorrectAnswers) {
+function renderWrongAnswer(alternative, incorrectAnswers, freezeTimer) {
   // Responsavel por renderizar a alternativa errada
   return (
     <input
@@ -81,7 +84,7 @@ function renderWrongAnswer(alternative, incorrectAnswers) {
       className="wrong"
       data-testid={`wrong-answer-${incorrectAnswers.indexOf(alternative)}`}
       onClick={() => {
-        setColor();
+        setColor(freezeTimer);
       }}
       value={alternative}
     />
@@ -138,15 +141,17 @@ class QuestionsPage extends Component {
   }
 
   render() {
-    const { isFetching, questions } = this.props;
+    const { isFetching, questions, restoreTimer } = this.props;
     const { counter, redirect } = this.state;
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
     if (redirect) return <Redirect to="/ResultsPage" />;
+    // if (time === 0) this.ableButtonNext();
     return (
       <div>
         <MainHeader />
         {renderQuestions(questions[counter])}
-        {renderButtonNext(this.goToNextQuestion)}
+        {renderButtonNext(this.goToNextQuestion, restoreTimer)}
+        <Timer />
       </div>
     );
   }
@@ -154,9 +159,12 @@ class QuestionsPage extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   getQuestion: (token) => dispatch(fetchQuestions(token)),
+  restoreTimer: () => dispatch(restoreClock()),
+  freezeTimer: () => dispatch(freezeClock()),
 });
 
 const mapStateToProps = (state) => ({
+  // time: state.counterTimeReducer.counter,
   userToken: state.tokenReducer.token,
   isFetching: state.questionsReducer.isFetching,
   questions: state.questionsReducer.questions,
@@ -169,4 +177,5 @@ QuestionsPage.propTypes = {
   userToken: PropTypes.string.isRequired,
   isFetching: PropTypes.bool.isRequired,
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
+  restoreTimer: PropTypes.func.isRequired,
 };

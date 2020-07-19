@@ -11,6 +11,9 @@ export const QUESTIONS_REJECTED = 'QUESTIONS_REJECTED';
 export const RECEIVED_GRAVATAR = 'RECEIVED_GRAVATAR';
 export const SAVE_USER_DATA = 'SAVE_USER_DATA';
 export const CLEAR_LOGIN_INFO = 'CLEAR_LOGIN_INFO';
+export const TIC_TAC = 'TIC_TAC';
+export const FREEZE_COUNTER = 'FREEZE_COUNTER';
+export const RESTORE_CLOCK = 'RESTORE_CLOCK';
 
 const requestToken = () => ({
   type: REQUEST_TOKEN_API,
@@ -75,4 +78,16 @@ export const getUserData = (name, avatar) => ({
   type: SAVE_USER_DATA,
   name,
   avatar,
+});
+
+export const ticTac = () => ({
+  type: TIC_TAC,
+});
+
+export const restoreClock = () => ({
+  type: RESTORE_CLOCK,
+});
+
+export const freezeClock = () => ({
+  type: FREEZE_COUNTER,
 });
