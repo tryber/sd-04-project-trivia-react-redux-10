@@ -149,6 +149,10 @@ class QuestionsPage extends Component {
     return this.setState({ redirect: true });
   }
 
+  // setLocalStorage() {
+  //   const { name , assertions, score, gravatarEmail } = this.
+  // }
+
   render() {
     const {
       isFetching,
