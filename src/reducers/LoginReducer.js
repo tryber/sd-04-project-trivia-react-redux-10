@@ -9,16 +9,6 @@ const INITIAL_STATE = {
 };
 
 const loginReducer = (state = INITIAL_STATE, action) => {
-  const stateAtual = {
-    player: {
-      name: state.name,
-      assertions: state.assertions,
-      score: state.score,
-      gravatarEmail: state.gravatarEmail,
-    },
-  };
-
-  localStorage.setItem('state', JSON.stringify(stateAtual));
   switch (action.type) {
     case SAVE_USER_DATA:
       return {
@@ -29,12 +19,22 @@ const loginReducer = (state = INITIAL_STATE, action) => {
       };
     case CLEAR_LOGIN_INFO:
       return INITIAL_STATE;
-    case ADD_SCORE:
+    case ADD_SCORE: {
+      const stateAtual = {
+        player: {
+          name: state.name,
+          assertions: state.assertions + 1,
+          score: state.score + action.score,
+          gravatarEmail: state.gravatarEmail,
+        },
+      };
+      localStorage.setItem('state', JSON.stringify(stateAtual));
       return {
         ...state,
         score: state.score + action.score,
         assertions: state.assertions + 1,
       };
+    }
     default:
       return state;
   }
