@@ -16,11 +16,13 @@ import Timer from '../components/Timer';
 // type: "multiple"
 
 function dissableButtonNext() {
+  // Desabilita o button next
   const buttonNext = document.querySelector('.next');
   buttonNext.style.display = 'none';
 }
 
 function renderButtonNext(goToNextQuestion, restoreTimer) {
+  // Responsavel por renderizar o button Next
   return (
     <input
       type="button"
@@ -31,21 +33,22 @@ function renderButtonNext(goToNextQuestion, restoreTimer) {
         goToNextQuestion();
         dissableButtonNext();
         restoreTimer();
+        // setCounter();
       }}
       value="Próximo"
     />
   );
 }
 
-function shuffle(received) {
-  // Resposavel por embaralhar o array de respostas
-  const array = [...received];
-  for (let i = array.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
+// function shuffle(received) {
+//   // Resposavel por embaralhar o array de respostas
+//   const array = [...received];
+//   for (let i = array.length - 1; i > 0; i -= 1) {
+//     const j = Math.floor(Math.random() * (i + 1));
+//     [array[i], array[j]] = [array[j], array[i]];
+//   }
+//   return array;
+// }
 
 function setColor() {
   // Resposavel por mudar as bordas das respostas
@@ -98,15 +101,15 @@ function renderQuestions(currentQuestion) {
     correct_answer: correctAnswer,
     category,
     question,
+    alternatives,
   } = currentQuestion;
-  let questions = [...incorrectAnswers, correctAnswer];
-  questions = shuffle(questions);
+
   return (
     <div>
       <h5 data-testid="question-category">{category}</h5>
       <h4 data-testid="question-text">{question}</h4>
       <div>
-        {questions.map((alternative) => {
+        {alternatives.map((alternative) => {
           if (alternative === correctAnswer) {
             return renderCorrectAnswer(alternative);
           }
@@ -161,6 +164,7 @@ const mapDispatchToProps = (dispatch) => ({
   getQuestion: (token) => dispatch(fetchQuestions(token)),
   restoreTimer: () => dispatch(restoreClock()),
   freezeTimer: () => dispatch(freezeClock()),
+  // setCounter: () => dispatch(ticTac()),
 });
 
 const mapStateToProps = (state) => ({

@@ -25,9 +25,9 @@ class Timer extends Component {
     this.timerID = setInterval(() => setCounter(), 1000);
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.timerID);
+  // }
 
   freezeTimer() {
     const { pausedCounter } = this.props;
@@ -43,9 +43,9 @@ class Timer extends Component {
   }
 
   render() {
-    const { time, freezing } = this.props;
+    const { time } = this.props;
     if (time === 0) this.freezeTimer();
-    if (freezing) clearInterval(this.timerID);
+    // if (freezing) clearInterval(this.timerID);
     return (
       <div>
         <h6>
@@ -73,5 +73,5 @@ Timer.propTypes = {
   time: PropTypes.number.isRequired,
   setCounter: PropTypes.func.isRequired,
   pausedCounter: PropTypes.func.isRequired,
-  freezing: PropTypes.bool.isRequired,
+  // freezing: PropTypes.bool.isRequired,
 };
