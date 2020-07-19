@@ -25,9 +25,9 @@ class Timer extends Component {
     this.timerID = setInterval(() => setCounter(), 1000);
   }
 
-  // componentWillUnmount() {
-  //   clearInterval(this.timerID);
-  // }
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
 
   freezeTimer() {
     const { pausedCounter } = this.props;

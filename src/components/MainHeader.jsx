@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class MainHeader extends Component {
   render() {
-    const { username, avatar } = this.props;
+    const { username, avatar, score } = this.props;
     return (
       <div className="Default-Header">
         <div className="Avatar-and-Name">
@@ -19,7 +19,7 @@ class MainHeader extends Component {
           </h3>
         </div>
         <h3 data-testid="header-score" className="Points">
-          0
+          {score}
         </h3>
       </div>
     );
@@ -29,10 +29,12 @@ class MainHeader extends Component {
 MainHeader.propTypes = {
   username: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-  username: state.loginReducer[0].name,
+  username: state.loginReducer.name,
+  score: state.loginReducer.score,
   avatar: state.gravatarReducer.picture,
 });
 export default connect(mapStateToProps)(MainHeader);

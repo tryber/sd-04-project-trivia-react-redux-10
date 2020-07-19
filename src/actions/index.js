@@ -14,6 +14,7 @@ export const CLEAR_LOGIN_INFO = 'CLEAR_LOGIN_INFO';
 export const TIC_TAC = 'TIC_TAC';
 export const FREEZE_COUNTER = 'FREEZE_COUNTER';
 export const RESTORE_CLOCK = 'RESTORE_CLOCK';
+export const ADD_SCORE = 'ADD_SCORE';
 
 const requestToken = () => ({
   type: REQUEST_TOKEN_API,
@@ -90,4 +91,9 @@ export const restoreClock = () => ({
 
 export const freezeClock = () => ({
   type: FREEZE_COUNTER,
+});
+
+export const addScore = (score) => ({
+  type: ADD_SCORE,
+  score,
 });

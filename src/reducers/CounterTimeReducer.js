@@ -9,7 +9,7 @@ const counterTimeReducer = (state = INITIAL_STATE, action) => {
     case TIC_TAC:
       return {
         ...state,
-        counter: state.counter - 1,
+        counter: state.counter === 0 ? 0 : state.counter - 1,
       };
     case FREEZE_COUNTER:
       return {

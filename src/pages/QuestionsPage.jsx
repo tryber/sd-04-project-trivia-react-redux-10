@@ -3,7 +3,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import { fetchQuestions, restoreClock, freezeClock } from '../actions/index';
+import {
+  fetchQuestions,
+  restoreClock,
+  freezeClock,
+  addScore,
+} from '../actions/index';
 import MainHeader from '../components/MainHeader';
 import './QuestionsPage.css';
 import Timer from '../components/Timer';
@@ -62,7 +67,16 @@ function setColor() {
   buttonNext.style.display = 'block';
 }
 
-function renderCorrectAnswer(alternative) {
+function calculateScore(timer, difficulty, addPoints) {
+  let level;
+  if (difficulty === 'hard') level = 3;
+  if (difficulty === 'medium') level = 2;
+  if (difficulty === 'easy') level = 1;
+  const score = 10 + timer * level;
+  addPoints(score);
+}
+
+function renderCorrectAnswer(alternative, timer, difficulty, addPoints) {
   // Resposavel por renderizar a alternativa correta
   return (
     <input
@@ -71,6 +85,7 @@ function renderCorrectAnswer(alternative) {
       className="correct"
       onClick={() => {
         setColor();
+        calculateScore(timer, difficulty, addPoints);
       }}
       data-testid="correct-answer"
       value={alternative}
@@ -94,7 +109,7 @@ function renderWrongAnswer(alternative, incorrectAnswers, freezeTimer) {
   );
 }
 
-function renderQuestions(currentQuestion) {
+function renderQuestions(currentQuestion, timer, addPoints) {
   // Resposavel por renderizar as pergunta recebida.
   const {
     incorrect_answers: incorrectAnswers,
@@ -102,6 +117,7 @@ function renderQuestions(currentQuestion) {
     category,
     question,
     alternatives,
+    difficulty,
   } = currentQuestion;
 
   return (
@@ -111,7 +127,7 @@ function renderQuestions(currentQuestion) {
       <div>
         {alternatives.map((alternative) => {
           if (alternative === correctAnswer) {
-            return renderCorrectAnswer(alternative);
+            return renderCorrectAnswer(alternative, timer, difficulty, addPoints);
           }
           return renderWrongAnswer(alternative, incorrectAnswers);
         })}
@@ -144,7 +160,13 @@ class QuestionsPage extends Component {
   }
 
   render() {
-    const { isFetching, questions, restoreTimer } = this.props;
+    const {
+      isFetching,
+      questions,
+      restoreTimer,
+      timer,
+      addPoints,
+    } = this.props;
     const { counter, redirect } = this.state;
     if (isFetching || questions.length === 0) return <p>Loading...</p>;
     if (redirect) return <Redirect to="/ResultsPage" />;
@@ -152,7 +174,7 @@ class QuestionsPage extends Component {
     return (
       <div>
         <MainHeader />
-        {renderQuestions(questions[counter])}
+        {renderQuestions(questions[counter], timer, addPoints)}
         {renderButtonNext(this.goToNextQuestion, restoreTimer)}
         <Timer />
       </div>
@@ -164,11 +186,12 @@ const mapDispatchToProps = (dispatch) => ({
   getQuestion: (token) => dispatch(fetchQuestions(token)),
   restoreTimer: () => dispatch(restoreClock()),
   freezeTimer: () => dispatch(freezeClock()),
+  addPoints: (score) => dispatch(addScore(score)),
   // setCounter: () => dispatch(ticTac()),
 });
 
 const mapStateToProps = (state) => ({
-  // time: state.counterTimeReducer.counter,
+  timer: state.counterTimeReducer.counter,
   userToken: state.tokenReducer.token,
   isFetching: state.questionsReducer.isFetching,
   questions: state.questionsReducer.questions,
@@ -182,4 +205,6 @@ QuestionsPage.propTypes = {
   isFetching: PropTypes.bool.isRequired,
   questions: PropTypes.arrayOf(PropTypes.object).isRequired,
   restoreTimer: PropTypes.func.isRequired,
+  timer: PropTypes.number.isRequired,
+  addPoints: PropTypes.func.isRequired,
 };
