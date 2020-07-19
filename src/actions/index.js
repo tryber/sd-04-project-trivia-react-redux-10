@@ -75,10 +75,11 @@ export const clearLoginInfo = () => ({
   type: CLEAR_LOGIN_INFO,
 });
 
-export const getUserData = (name, avatar) => ({
+export const getUserData = (name, avatar, email) => ({
   type: SAVE_USER_DATA,
   name,
   avatar,
+  email,
 });
 
 export const ticTac = () => ({

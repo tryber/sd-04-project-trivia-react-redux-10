@@ -45,16 +45,6 @@ function renderButtonNext(goToNextQuestion, restoreTimer) {
   );
 }
 
-// function shuffle(received) {
-//   // Resposavel por embaralhar o array de respostas
-//   const array = [...received];
-//   for (let i = array.length - 1; i > 0; i -= 1) {
-//     const j = Math.floor(Math.random() * (i + 1));
-//     [array[i], array[j]] = [array[j], array[i]];
-//   }
-//   return array;
-// }
-
 function setColor() {
   // Resposavel por mudar as bordas das respostas
   const wrongs = Array.from(document.querySelectorAll('.wrong'));

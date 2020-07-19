@@ -36,7 +36,7 @@ class LoginPage extends Component {
     const { token, userData, setGravatar } = this.props;
     const { name, avatar, email } = this.state;
     token();
-    userData(name, avatar);
+    userData(name, avatar, email);
     setGravatar(email);
     const storage = {
       player: {
@@ -108,7 +108,7 @@ class LoginPage extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   token: () => dispatch(fetchToken()),
-  userData: (name, avatar) => dispatch(getUserData(name, avatar)),
+  userData: (name, avatar, email) => dispatch(getUserData(name, avatar, email)),
   setGravatar: (picture) => dispatch(gravatarImage(picture)),
 });
 

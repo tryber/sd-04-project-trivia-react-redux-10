@@ -4,7 +4,8 @@ const INITIAL_STATE = {
   name: '',
   avatar: '',
   score: 0,
-  rightAnswer: 0,
+  assertions: 0,
+  gravatarEmail: '',
 };
 
 const loginReducer = (state = INITIAL_STATE, action) => {
@@ -14,14 +15,15 @@ const loginReducer = (state = INITIAL_STATE, action) => {
         ...state,
         name: action.name,
         avatar: action.avatar,
+        gravatarEmail: action.email,
       };
     case CLEAR_LOGIN_INFO:
-      return [];
+      return state;
     case ADD_SCORE:
       return {
         ...state,
         score: state.score + action.score,
-        rightAnswer: state.rightAnswer + 1,
+        assertions: state.assertions + 1,
       };
     default:
       return state;
