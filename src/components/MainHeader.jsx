@@ -37,4 +37,5 @@ const mapStateToProps = (state) => ({
   score: state.loginReducer.score,
   avatar: state.gravatarReducer.picture,
 });
+
 export default connect(mapStateToProps)(MainHeader);
