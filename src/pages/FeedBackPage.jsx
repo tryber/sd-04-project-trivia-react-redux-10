@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const renderButtons = () => (
@@ -120,3 +121,10 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(FeedbackPage);
+
+FeedbackPage.propTypes = {
+  playerAnswers: PropTypes.number.isRequired,
+  playerName: PropTypes.any,
+  playerPicture: PropTypes.elementType.img,
+  playerScore: PropTypes.number.isRequired,
+};

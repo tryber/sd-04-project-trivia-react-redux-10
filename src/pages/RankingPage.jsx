@@ -5,7 +5,7 @@ class RankingPage extends React.Component {
   static rankingList() {
     const getUser = JSON.parse(localStorage.getItem('ranking')) || [];
     const sortUser = getUser.sort((a, b) => b.score - a.score);
-    
+
     return (
       <ul className="ranking-list">
         {sortUser.map(({ name, score, picture }, indice) => {
