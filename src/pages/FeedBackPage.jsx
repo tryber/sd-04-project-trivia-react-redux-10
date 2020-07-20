@@ -124,7 +124,7 @@ export default connect(mapStateToProps)(FeedbackPage);
 
 FeedbackPage.propTypes = {
   playerAnswers: PropTypes.number.isRequired,
-  playerName: PropTypes.any,
+  playerName: PropTypes.string.isRequired,
   playerPicture: PropTypes.elementType.img,
   playerScore: PropTypes.number.isRequired,
 };
