@@ -15,6 +15,7 @@ const tokenReducer = (state = INITIAL_STATE, action) => {
       };
 
     case RECEIVED_TOKEN_API:
+      localStorage.setItem('token', JSON.stringify(action.token));
       return {
         ...state,
         isFetching: false,

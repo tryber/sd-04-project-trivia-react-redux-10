@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import MainHeader from '../components/MainHeader';
 // import Header from './Header.jsx'
 
 function renderButtons() {
@@ -22,6 +23,8 @@ class FeedBackPage extends Component {
   render() {
     return (
       <div>
+        <MainHeader />
+        <h3 data-testid="feedback-text">Resultados:</h3>
         {/* <Header /> */}
         {/* {this.Message()} */}
         {/* {this.assertions} */}
