@@ -16,6 +16,8 @@ const loginReducer = (state = INITIAL_STATE, action) => {
         name: action.name,
         avatar: action.avatar,
         gravatarEmail: action.email,
+        score: 0,
+        assertions: 0,
       };
     case CLEAR_LOGIN_INFO:
       return INITIAL_STATE;
