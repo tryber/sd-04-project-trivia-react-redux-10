@@ -47,8 +47,6 @@ class LoginPage extends Component {
       },
     };
     localStorage.setItem('state', JSON.stringify(storage));
-    const blankStorage = JSON.parse(localStorage.getItem('ranking'));
-    if (!blankStorage) localStorage.setItem('ranking', JSON.stringify([]));
   }
 
   renderNameInput() {
@@ -84,12 +82,10 @@ class LoginPage extends Component {
   }
 
   render() {
-    // const { avatar } = this.state;
     return (
       <div className="login-area">
         {this.renderNameInput()}
         {this.renderEmailInput()}
-        {/* <img src={`https://www.gravatar.com/avatar/${avatar}`} alt="avatar" /> */}
         <Link to="/perguntas">
           <button
             type="button"
