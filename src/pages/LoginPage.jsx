@@ -82,12 +82,10 @@ class LoginPage extends Component {
   }
 
   render() {
-    // const { avatar } = this.state;
     return (
       <div className="login-area">
         {this.renderNameInput()}
         {this.renderEmailInput()}
-        {/* <img src={`https://www.gravatar.com/avatar/${avatar}`} alt="avatar" /> */}
         <Link to="/perguntas">
           <button
             type="button"

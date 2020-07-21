@@ -11,12 +11,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <div>
-        {/* <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>SUA VEZ</p>
-          </header>
-        </div> */}
         <Switch>
           <Route exact path="/">
             <LoginPage />

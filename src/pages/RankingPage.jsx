@@ -31,7 +31,7 @@ class RankingPage extends React.Component {
             return b.score - a.score;
           })
           .map((e, i) => (
-            <div className="list-items">
+            <div key={e.name} className="list-items">
               <img src={e.picture} alt="pictureAvatar" />
               <p data-testid={`player-name-${i}`}>{`${e.name}`}</p>
               <p data-testid={`player-score-${i}`}>{` ${e.score}`}</p>

@@ -19,8 +19,7 @@ const loginReducer = (state = INITIAL_STATE, action) => {
         score: 0,
         assertions: 0,
       };
-    case CLEAR_LOGIN_INFO:
-      return INITIAL_STATE;
+    case CLEAR_LOGIN_INFO: return INITIAL_STATE;
     case ADD_SCORE: {
       const stateAtual = {
         player: {
@@ -37,8 +36,7 @@ const loginReducer = (state = INITIAL_STATE, action) => {
         assertions: state.assertions + 1,
       };
     }
-    default:
-      return state;
+    default: return state;
   }
 };
 
