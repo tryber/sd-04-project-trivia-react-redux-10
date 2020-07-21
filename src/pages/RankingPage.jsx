@@ -23,13 +23,14 @@ class RankingPage extends React.Component {
   }
 
   render() {
+    const rank = JSON.parse(localStorage.getItem('ranking'));
     return (
       <div>
         <div>
           <h1 className="title" data-testid="ranking-title">
             Ranking
           </h1>
-          {RankingPage.rankingList()}
+          {RankingPage.rankingList(rank)}
         </div>
         <div className="home-container">
           <Link to="/">
