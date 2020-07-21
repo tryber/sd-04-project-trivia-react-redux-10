@@ -8,7 +8,8 @@ class RankingPage extends React.Component {
 
     return (
       <ul className="ranking-list">
-        {sortUser.map(({ name, score, picture }, index) => {
+        {sortedUsers.map(({ name, score, picture }, indice) => {
+          const index = indice + 1;
           return (
             <li className="list-items">
               {sortUser(picture)}
