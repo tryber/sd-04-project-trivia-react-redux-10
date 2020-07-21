@@ -7,18 +7,15 @@ class RankingPage extends React.Component {
     const sortUser = getUser.sort((a, b) => b.score - a.score);
 
     return (
-      <ul className="ranking-list">
-        {sortUser.map(({ name, score }, indice) => {
-          const index = indice + 1;
-          return (
-            <li className="list-items">
-              {sortUser}
-              <p data-testid={`player-name-${index}`}>{`${name}`}</p>
-              <p data-testid={`player-score-${index}`}>{` ${score}`}</p>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="ranking-list">
+        {sortUser.map(({ name, score, picture }, indice) => (
+          <div className="list-items">
+            <img src={picture} alt="pictureAvatar" />
+            <p data-testid={`player-name-${indice}`}>{`${name}`}</p>
+            <p data-testid={`player-score-${indice}`}>{` ${score}`}</p>
+          </div>
+        ))}
+      </div>
     );
   }
 
@@ -33,13 +30,9 @@ class RankingPage extends React.Component {
         </div>
         <div className="home-container">
           <Link to="/">
-            <button
-              className="home-btn"
-              data-testid="btn-go-home"
-              type="button"
-            >
-                VOLTE AO INÍCIO!
-                </button>
+            <button className="home-btn" data-testid="btn-go-home" type="button">
+              VOLTE AO INÍCIO!
+            </button>
           </Link>
         </div>
       </div>
