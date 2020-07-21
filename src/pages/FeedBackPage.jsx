@@ -96,9 +96,7 @@ const renderHeaderScore = (playerName, playerScore, playerPicture) => (
 class FeedbackPage extends Component {
   componentDidMount() {
     const {
-      playerAnswers,
       playerName,
-      playerPicture,
       playerScore,
     } = this.props;
     const firstState = JSON.parse(localStorage.getItem('ranking'));
