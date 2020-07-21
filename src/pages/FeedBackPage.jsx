@@ -94,16 +94,16 @@ const renderHeaderScore = (playerName, playerScore, playerPicture) => (
 );
 
 class FeedbackPage extends Component {
-  componentDidMount() {
-    const {
-      playerName,
-      playerScore,
-    } = this.props;
-    const firstState = JSON.parse(localStorage.getItem('ranking'));
-    const secondState = { playerName, playerScore };
-    if (firstState) return localStorage.setItem('ranking', JSON.stringify([...firstState, secondState]));
-    return localStorage.setItem('ranking', JSON.stringify([secondState]));
-  }
+  // componentDidMount() {
+  //   const {
+  //     playerName,
+  //     playerScore,
+  //   } = this.props;
+  //   const firstState = JSON.parse(localStorage.getItem('ranking'));
+  //   const secondState = { playerName, playerScore };
+  //   if (firstState) return localStorage.setItem('ranking', JSON.stringify([...firstState, secondState]));
+  //   return localStorage.setItem('ranking', JSON.stringify([secondState]));
+  // }
 
   render() {
     const {
