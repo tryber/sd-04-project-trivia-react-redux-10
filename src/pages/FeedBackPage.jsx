@@ -12,7 +12,7 @@ const renderButtons = () => (
           className="feedback-button-ranking"
           data-testid="btn-ranking"
         >
-          VER RANKING
+          VER RANKING!
         </button>
       </Link>
     </div>
@@ -23,7 +23,7 @@ const renderButtons = () => (
           className="feedback-button-playagain"
           data-testid="btn-play-again"
         >
-          JOGAR NOVAMENTE
+          JOGAR NOVAMENTE!
         </button>
       </Link>
     </div>
@@ -94,6 +94,19 @@ const renderHeaderScore = (playerName, playerScore, playerPicture) => (
 );
 
 class FeedbackPage extends Component {
+  componentDidMount() {
+    const {
+      playerAnswers,
+      playerName,
+      playerPicture,
+      playerScore,
+    } = this.props;
+    const firstState = JSON.parse(localStorage.getItem('ranking'));
+    const secondState = { playerName, playerScore };
+    if (firstState) return localStorage.setItem('ranking', JSON.stringify([...firstState, secondState]));
+    return localStorage.setItem('ranking', JSON.stringify([secondState]));
+  }
+
   render() {
     const {
       playerAnswers,

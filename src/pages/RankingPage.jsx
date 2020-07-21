@@ -8,11 +8,11 @@ class RankingPage extends React.Component {
 
     return (
       <ul className="ranking-list">
-        {sortUser.map(({ name, score, picture }, indice) => {
+        {sortUser.map(({ name, score }, indice) => {
           const index = indice + 1;
           return (
             <li className="list-items">
-              {sortUser(picture)}
+              {sortUser}
               <p data-testid={`player-name-${index}`}>{`${name}`}</p>
               <p data-testid={`player-score-${index}`}>{` ${score}`}</p>
             </li>
@@ -23,14 +23,14 @@ class RankingPage extends React.Component {
   }
 
   render() {
-    const rank = JSON.parse(localStorage.getItem('ranking'));
+
     return (
       <div>
         <div>
           <h1 className="title" data-testid="ranking-title">
             Ranking
           </h1>
-          {RankingPage.rankingList(rank)}
+          {RankingPage.rankingList()}
         </div>
         <div className="home-container">
           <Link to="/">
