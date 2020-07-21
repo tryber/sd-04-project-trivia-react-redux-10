@@ -2,18 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class RankingPage extends React.Component {
-  /*  static rankingList() {
-    const playerGravatar = (picture) => <img src={picture} alt="Gravatar" />;
-    const getUser = local storage;
+  static rankingList() {
+    const getUser = JSON.parse(localStorage.getItem('ranking')) || [];
     const sortUser = getUser.sort((a, b) => b.score - a.score);
 
     return (
       <ul className="ranking-list">
-        {sortUser.map(({ name, score, picture }, indice) => {
+        {sortUser.map(({ name, score }, indice) => {
           const index = indice + 1;
           return (
             <li className="list-items">
-              {playerGravatar(picture)}
+              {sortUser}
               <p data-testid={`player-name-${index}`}>{`${name}`}</p>
               <p data-testid={`player-score-${index}`}>{` ${score}`}</p>
             </li>
@@ -21,7 +20,7 @@ class RankingPage extends React.Component {
         })}
       </ul>
     );
-  }*/
+  }
 
   render() {
     return (
@@ -30,7 +29,7 @@ class RankingPage extends React.Component {
           <h1 className="title" data-testid="ranking-title">
             Ranking
           </h1>
-          {/* {rankingList()} */}
+          {RankingPage.rankingList()}
         </div>
         <div className="home-container">
           <Link to="/">
